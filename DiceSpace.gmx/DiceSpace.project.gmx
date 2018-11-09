@@ -7,9 +7,22 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprite>sprites\sp_dice</sprite>
+    <sprite>sprites\sp_diceHolder</sprite>
+    <sprite>sprites\sp_cell</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\scr_init_grid.gml</script>
+    <script>scripts\scr_draw_grid.gml</script>
+  </scripts>
+  <objects name="objects">
+    <object>objects\obj_dices</object>
+    <object>objects\obj_cell</object>
+  </objects>
+  <rooms name="rooms">
+    <room>rooms\rm_main</room>
+  </rooms>
   <help>
     <rtf>help.rtf</rtf>
   </help>
