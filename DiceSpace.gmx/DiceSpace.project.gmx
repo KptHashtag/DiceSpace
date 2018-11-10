@@ -9,16 +9,20 @@
     <sprite>sprites\sp_dice</sprite>
     <sprite>sprites\sp_diceHolder</sprite>
     <sprite>sprites\sp_cell</sprite>
+    <sprite>sprites\sp_placer</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\scr_init_grid.gml</script>
     <script>scripts\scr_draw_grid.gml</script>
+    <script>scripts\instance_place_list.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_dices</object>
     <object>objects\obj_cell</object>
+    <object>objects\obj_GameHandler</object>
+    <object>objects\obj_placer</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_main</room>

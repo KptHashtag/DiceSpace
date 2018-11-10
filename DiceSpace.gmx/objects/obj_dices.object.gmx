@@ -35,6 +35,8 @@ hov = false
 
 spd_max = room_speed
 spd = 0
+
+place = false
 </string>
           </argument>
         </arguments>
@@ -80,7 +82,7 @@ spd = 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(mouse_check_button(mb_left) &amp;&amp; hov){
+            <string>if(mouse_check_button(mb_left) &amp;&amp; hov &amp;&amp; !instance_exists(obj_placer)){
     if(alarm[0] &lt; 1){
         spd = spd_max
         rot+=10
@@ -95,6 +97,7 @@ spd = 0
         if(number_t &gt; sprite_get_number(sp_dice)-1)number_t=0
         alarm[0] = room_speed/spd
     }
+    place = true
 }else{
     if(alarm[0] &lt; 1 &amp;&amp; spd != 10){
         spd--
@@ -110,6 +113,13 @@ spd = 0
         if(number_o &gt; sprite_get_number(sp_dice)-1)number_o=0
         if(number_t &gt; sprite_get_number(sp_dice)-1)number_t=0
         alarm[0] = room_speed/spd
+    }
+    if(place &amp;&amp; spd &lt;=10){
+        var t = instance_create(mouse_x,mouse_y,obj_placer);
+        t.image_xscale = number_o+1
+        t.image_yscale = number_t+1
+        t.image_blend = c_red
+        place = false
     }
 }
 </string>
