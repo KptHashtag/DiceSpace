@@ -118,7 +118,7 @@ place = false
         var t = instance_create(mouse_x,mouse_y,obj_placer);
         t.image_xscale = number_o+1
         t.image_yscale = number_t+1
-        t.image_blend = c_red
+        t.image_blend = obj_GameHandler.player
         place = false
     }
 }
@@ -193,6 +193,9 @@ place = false
             <string>draw_sprite_ext(sp_diceHolder,0,x,y,1,1,rot,c_white,1)
 draw_sprite_ext(sp_dice,number_o,x + lengthdir_x(sprite_get_width(sp_dice)*1,rot_o), y + lengthdir_y(sprite_get_height(sp_dice)*1,rot_o),1,1,rot_o,c_white,1)
 draw_sprite_ext(sp_dice,number_t,x + lengthdir_x(sprite_get_width(sp_dice)*1,rot_t), y + lengthdir_y(sprite_get_height(sp_dice)*1,rot_t),1,1,rot_t,c_white,1)
+
+draw_set_halign(fa_center)
+draw_text_ext_transformed(x, y + sprite_get_width(sp_diceHolder), "Red player:" + string(global.red_pts) + "#Blue player:" + string(global.blue_pts), 10, 128, 1, 1, 0)
 </string>
           </argument>
         </arguments>

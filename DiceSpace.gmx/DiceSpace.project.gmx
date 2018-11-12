@@ -10,6 +10,8 @@
     <sprite>sprites\sp_diceHolder</sprite>
     <sprite>sprites\sp_cell</sprite>
     <sprite>sprites\sp_placer</sprite>
+    <sprite>sprites\sp_red</sprite>
+    <sprite>sprites\sp_blue</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -17,12 +19,15 @@
     <script>scripts\scr_init_grid.gml</script>
     <script>scripts\scr_draw_grid.gml</script>
     <script>scripts\instance_place_list.gml</script>
+    <script>scripts\scr_check_around.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_dices</object>
     <object>objects\obj_cell</object>
     <object>objects\obj_GameHandler</object>
     <object>objects\obj_placer</object>
+    <object>objects\obj_placed_red</object>
+    <object>objects\obj_placed_blue</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_main</room>
