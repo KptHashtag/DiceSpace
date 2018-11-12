@@ -53,8 +53,9 @@ l=noone
           <argument>
             <kind>1</kind>
             <string>var t = instance_nearest(mouse_x,mouse_y,obj_cell);
-x = t.x + offset_x
-y = t.y + offset_y
+  
+ x = t.x - 8
+ y = t.y - 8
 </string>
           </argument>
         </arguments>
@@ -84,13 +85,16 @@ with(obj_cell){
      }
 }
 for(var i = 0; i &lt; ds_list_size(l); i++){
-    if(ds_list_find_value(l,i)=0){
+    var _id = ds_list_find_value(l,i)
+    if(!ds_grid_get(global.board,_id.cell_x,_id.cell_y) == 0){
         ds_list_destroy(l);
         exit;
     }
 }
 for(var i = 0; i &lt; ds_list_size(l); i++){
-    ds_list_replace(l,i,1)
+    _id = ds_list_find_value(l,i)
+    _id.image_blend = c_red
+    ds_grid_set(global.board, _id.cell_x, _id.cell_y, 1)
 }
 ds_list_destroy(l)
 instance_destroy()
@@ -130,6 +134,33 @@ if(ds_exists(l, ds_type_list)){
 }
 draw_text(room_width - 8 - string_width(txt), room_height - 8 - string_height(txt), txt)
 ds_list_destroy(l);*/
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="82">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>var _x = image_xscale
+var _y = image_yscale
+
+image_xscale = _y
+image_yscale = _x
 </string>
           </argument>
         </arguments>
