@@ -61,6 +61,33 @@ l=noone
         </arguments>
       </action>
     </event>
+    <event eventtype="6" enumb="54">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>var _x = image_xscale
+var _y = image_yscale
+
+image_xscale = _y
+image_yscale = _x
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="6" enumb="4">
       <action>
         <libid>1</libid>
@@ -102,17 +129,18 @@ for(var i = 0; i &lt; ds_list_size(l); i++){
     }
     if(obj_GameHandler.player = c_blue){
         ds_grid_set(global.board, _id.cell_x, _id.cell_y, 2)
-        instance_destroy(_id)
     }
     
 }
 if(obj_GameHandler.player = c_red){
     var t = instance_create(x,y,obj_placed_red);
+    global.red_pts += image_xscale * image_yscale
     t.image_xscale = image_xscale
     t.image_yscale = image_yscale
     obj_GameHandler.player = c_blue
 }else if(obj_GameHandler.player = c_blue){
     var t = instance_create(x,y,obj_placed_blue);
+    global.blue_pts += image_xscale * image_yscale
     t.image_xscale = image_xscale
     t.image_yscale = image_yscale
     obj_GameHandler.player = c_red
@@ -147,8 +175,9 @@ draw_rectangle(x , y, x + sprite_width - 1, y + sprite_height - 1, true)
 draw_set_colour(c_white)
 draw_set_valign(fa_middle)
 draw_set_halign(fa_center)
-
+draw_set_font(f_numbers)
 draw_text(x + sprite_width/2, y + sprite_height/2, string(image_xscale*image_yscale))
+draw_set_font(f_main)
 
 draw_set_valign(fa_top)
 draw_set_halign(fa_left)

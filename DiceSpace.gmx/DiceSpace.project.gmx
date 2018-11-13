@@ -12,6 +12,7 @@
     <sprite>sprites\sp_placer</sprite>
     <sprite>sprites\sp_red</sprite>
     <sprite>sprites\sp_blue</sprite>
+    <sprite>sprites\sp_skip</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -21,6 +22,10 @@
     <script>scripts\instance_place_list.gml</script>
     <script>scripts\scr_check_around.gml</script>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\f_main</font>
+    <font>fonts\f_numbers</font>
+  </fonts>
   <objects name="objects">
     <object>objects\obj_dices</object>
     <object>objects\obj_cell</object>
@@ -28,6 +33,7 @@
     <object>objects\obj_placer</object>
     <object>objects\obj_placed_red</object>
     <object>objects\obj_placed_blue</object>
+    <object>objects\obj_skip</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_main</room>
