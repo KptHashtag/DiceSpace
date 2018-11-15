@@ -30,6 +30,9 @@ allow = false
 offset_y = 0
 offset_x = 0
 l=noone
+
+_x = 0
+_y = 0
 </string>
           </argument>
         </arguments>
@@ -54,8 +57,15 @@ l=noone
             <kind>1</kind>
             <string>var t = instance_nearest(mouse_x,mouse_y,obj_cell);
   
- x = t.x - 8
- y = t.y - 8
+ x = t.x - 8 + offset_x
+ y = t.y - 8 + offset_y
+if(mouse_check_button(mb_left) &amp;&amp; !place_meeting(mouse_x,mouse_y,self)){
+    offset_x = mouse_x - _x - ((mouse_x - _x) mod 16)
+    offset_y = mouse_y - _y - ((mouse_y - _y) mod 16)
+}else{
+    _x = mouse_x
+    _y = mouse_y
+}
 </string>
           </argument>
         </arguments>
@@ -88,7 +98,7 @@ image_yscale = _x
         </arguments>
       </action>
     </event>
-    <event eventtype="6" enumb="4">
+    <event eventtype="6" enumb="53">
       <action>
         <libid>1</libid>
         <id>603</id>
